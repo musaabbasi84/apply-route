@@ -120,6 +120,45 @@ footer{background:var(--card);padding:26px 0;border-top:1px solid var(--bd)}.fg{
 @keyframes spn{to{transform:rotate(360deg)}}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);max-width:min(92vw,460px);background:var(--navy);color:#fff;padding:14px 20px;border-radius:14px;font-size:14px;box-shadow:0 10px 30px #0006;opacity:0;pointer-events:none;transition:.3s;z-index:200;border-left:5px solid var(--green)}
 .toast.on{opacity:1;transform:translate(-50%,0)}.toast.bad{border-left-color:#e5484d}
+
+
+/* Hide video and fix reviews + consultation layout */
+.row3 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 0 !important;
+    align-items: stretch;
+    padding: 0;
+}
+
 .row3 .vid {
     display: none !important;
 }
+
+.row3 .tm,
+.row3 .cta {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .row3 {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .row3 .tm,
+    .row3 .cta {
+        grid-column: 1 !important;
+        width: 100%;
+    }
+
+    .tm,
+    .cta {
+        padding: 28px 22px;
+    }
+}
+
+
