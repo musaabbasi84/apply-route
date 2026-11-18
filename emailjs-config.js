@@ -14,5 +14,5 @@
 window.EMAILJS_CONFIG = {
   serviceId: "service_lwarcto",
   templateId: "template_qw3yjxy",
-  publicKey: ""
+  publicKey: "d4mnZrnBXJquxSc2h"
 };
