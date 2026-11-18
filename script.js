@@ -63,7 +63,7 @@ if($("fh").value)return done();
 if(Date.now()-t0<2500)return er.textContent="Please take a moment to check your details, then submit again.";
 if(cooling())return er.textContent="Your enquiry was just sent. Please wait a few seconds before sending another.";
 busy=true;er.textContent="";setBusy($("sb"),true,"Sending…","Submit");
-sendInquiry({student_name:n,student_email:e,phone:"Not provided",country:c,message:"Quick enquiry from the Get Started form. Interested in studying in "+c+"."}).then(function(){markSent();done()},function(err){busy=false;setBusy($("sb"),false,"","Submit");er.textContent=sendError(err)});
+sendInquiry({student_name:n,student_email:e,phone:$("fp").value.trim(),country:c,message:"Quick enquiry from the Get Started form. Interested in studying in "+c+"."}).then(function(){markSent();done()},function(err){busy=false;setBusy($("sb"),false,"","Submit");er.textContent=sendError(err)});                           
 function done(){$("fm").innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:42px">✅</div><b id="tk"></b><p style="color:var(--mu)">A counsellor will contact you shortly.</p></div>';$("tk").textContent="Thank you, "+n+"!";toast("Enquiry sent successfully.","ok")}}}
 [].forEach.call(document.querySelectorAll("[data-open]"),function(b){b.onclick=openForm});
 $("mx").onclick=function(){$("md").classList.remove("on")};$("md").onclick=function(e){if(e.target===this)this.classList.remove("on")};
